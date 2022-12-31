@@ -1,2 +1,3 @@
-# ms-tracker
-Backend do Tracker de Tarefas e Projetos
+# Trick-Tracker
+
+## Sistema de acompanhamento de Tarefas e Projetos para aplicação da técnica Pomodoro de gerenciamento de tempo.
