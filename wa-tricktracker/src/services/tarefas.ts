@@ -10,20 +10,20 @@ export default (httpClient: AxiosInstance) => ({
     }
   },
   createTarefa: async (tarefa: ITarefa) => {
-    const response = await httpClient.post("tarefas", tarefa);
+    const response = await httpClient.post("/Tarefa", tarefa);
 
     return {
       data: response.data
     }
   },
   updateTarefa: async (tarefa: ITarefa) => {
-    const response = await httpClient.put(`tarefas/${tarefa.id}`, tarefa);
+    const response = await httpClient.put(`/Tarefa/${tarefa.id}`, tarefa);
 
     return { 
       data: response.data
     }
   },
-  deleteTarefa: async (id: string) => {
-    await httpClient.delete(`tarefas/${id}`);
+  deleteTarefa: async (id: number) => {
+    await httpClient.delete(`Tarefa/${id}`);
   }
 })

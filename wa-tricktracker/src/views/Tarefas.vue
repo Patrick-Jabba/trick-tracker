@@ -91,7 +91,7 @@ export default defineComponent({
       store.dispatch(GET_TAREFAS, state.filtro)
     })
 
-    function salvarTarefa(tarefa: ITarefa) {
+    async function salvarTarefa(tarefa: ITarefa) {
       store.dispatch(GET_PROJETOS);
       store.dispatch(POST_TAREFA, tarefa);
     }
@@ -105,7 +105,7 @@ export default defineComponent({
       location.reload();
     }
 
-    function confirmarUpdateTarefa() {
+    async function confirmarUpdateTarefa() {
       store.dispatch(UPDATE_TAREFA, state.tarefaSelecionada);
       fecharModal();
     }

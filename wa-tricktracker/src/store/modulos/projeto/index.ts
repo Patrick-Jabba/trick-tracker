@@ -21,7 +21,7 @@ export const projeto: Module<ProjectState, State> = {
       const index = state.projetos.findIndex(proj => proj.id === projeto.id);
       state.projetos[index] = projeto;
     },
-    [EXCLUIR_PROJETO](state, id: string) {
+    [EXCLUIR_PROJETO](state, id: number) {
       state.projetos = state.projetos.filter(proj => proj.id != id);
     },
     [DEFINIR_PROJETO](state, projetos: IProjeto[]) {
@@ -58,7 +58,7 @@ export const projeto: Module<ProjectState, State> = {
         console.log(error);
       }
     },
-    async [DELETE_PROJETO]({ commit }, id: string) {
+    async [DELETE_PROJETO]({ commit }, id: number) {
       try {
         await services.projetos.deleteProject(id);
         commit(EXCLUIR_PROJETO, id);

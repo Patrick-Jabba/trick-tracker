@@ -19,7 +19,7 @@ export const tarefa: Module<TaskState, State> = {
       const index = state.tarefas.findIndex(t => t.id === tarefa.id);
       state.tarefas[index] = tarefa;
     },
-    [EXCLUIR_TAREFA](state, id: string) {
+    [EXCLUIR_TAREFA](state, id: number) {
       state.tarefas = state.tarefas.filter(t => t.id != id);
     },
     [DEFINIR_TAREFA](state, tarefas: ITarefa[]) {
@@ -30,7 +30,7 @@ export const tarefa: Module<TaskState, State> = {
     
     async [GET_TAREFAS]({ commit }, filtro: string) {
       try {
-        let url = "tarefas"
+        let url = "/Tarefa"
         if(filtro){
           url += `?descricao=${filtro}`
         }
@@ -61,7 +61,7 @@ export const tarefa: Module<TaskState, State> = {
         console.log(error);
       }
     },
-    async [DELETE_TAREFA]({commit}, id: string){
+    async [DELETE_TAREFA]({commit}, id: number){
       try {
         await services.tarefas.deleteTarefa(id);
         commit(EXCLUIR_TAREFA, id)

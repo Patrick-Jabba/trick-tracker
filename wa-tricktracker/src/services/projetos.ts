@@ -25,7 +25,7 @@ export default (httpClient: AxiosInstance) => ({
       data: response.data
     }
   },
-  deleteProject: async (id: string) => {
+  deleteProject: async (id: number) => {
     await httpClient.delete(`/Projeto/${id}`)
   }
 })

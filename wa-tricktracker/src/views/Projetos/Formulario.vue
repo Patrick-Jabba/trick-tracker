@@ -32,7 +32,7 @@ import { GET_PROJETOS, POST_PROJETO, UPDATE_PROJETO } from "@/store/type-actions
 export default defineComponent({
   props: {
     id: {
-      type: String,
+      type: Number,
     },
   },
 

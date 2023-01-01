@@ -15,7 +15,7 @@
       </div>
       <div class="column is-3">
         <div class="select">
-          <select v-model="state.idProjeto">
+          <select v-model="state.projetoId">
             <option value="">Selecione o projeto</option>
             <option
               v-for="projeto in projetos"
@@ -54,15 +54,14 @@ export default defineComponent({
     const store = useStore();
     const state = reactive({
       descricaoTarefa: "",
-      idProjeto: "",
+      projetoId: 0,
     });
     store.dispatch(GET_PROJETOS);
     const projetos = computed(() => store.state.projeto.projetos);
 
 
-    function salvarTarefa(tempoDecorrido: number): void {
-      const projeto = store.state.projeto.projetos.find(
-        (proj) => proj.id === state.idProjeto
+    async function salvarTarefa(tempoDecorrido: number): Promise<void> {
+      const projeto = store.state.projeto.projetos.find((proj) => proj.id === state.projetoId
       );
       if (!projeto) {
         toast.notificar(TipoNotification.FALHA, "Oops!", "Selecione um projeto para vincular sua tarefa.")
@@ -71,7 +70,7 @@ export default defineComponent({
       emit("aoSalvarTarefa", {
         duracaoEmSegundos: tempoDecorrido,
         descricao: state.descricaoTarefa,
-        projeto: projeto,
+        projetoId: projeto.id,
       });
       toast.notificar(TipoNotification.SUCESSO, "Sucesso", "Tarefa criada com êxito!")
       state.descricaoTarefa = "";
