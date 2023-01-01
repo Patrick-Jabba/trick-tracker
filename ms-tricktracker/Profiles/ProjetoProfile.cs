@@ -1,7 +1,6 @@
 using AutoMapper;
 using ms_tracker.Models;
-using ms_tracker.Models.Dtos;
-
+using ms_tracker.Models.Dtos.Projeto;
 namespace ms_tracker.Profiles
 {
     public class ProjetoProfile : Profile

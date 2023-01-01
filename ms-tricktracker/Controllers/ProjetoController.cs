@@ -1,11 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using ms_tracker.Context;
 using ms_tracker.Models;
-using ms_tracker.Models.Dtos;
+using ms_tracker.Models.Dtos.Projeto;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ms_tracker.Controllers

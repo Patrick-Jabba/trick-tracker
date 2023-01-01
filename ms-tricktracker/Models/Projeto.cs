@@ -14,5 +14,7 @@ namespace ms_tracker.Models
 
         [Required]
         public string Nome { get; set; }
+
+        public virtual List<Tarefa> Tarefas {get; set;}
     }
 }
