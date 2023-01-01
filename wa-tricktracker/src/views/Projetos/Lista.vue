@@ -57,7 +57,7 @@ export default defineComponent({
 
     async function excluir(id: number){
       const projeto = projetos.value.find(p => p.id === id)
-      toast.notificar(TipoNotification.SUCESSO, "Sucesso!", `Projeto ${projeto?.nome} excluído com êxito!`);
+      toast.notificar(TipoNotification.SUCESSO, "Sucesso!", `Projeto "${projeto?.nome}" excluído com êxito!`);
       await delay(500);
       store.dispatch(DELETE_PROJETO, id);
     }

@@ -55,6 +55,11 @@
 import { defineComponent, computed, reactive, watchEffect } from "vue";
 
 import useStore from "@/store";
+
+import toast from "@/utils/toast";
+import delay from "@/utils/delay";
+
+import { TipoNotification } from '@/interfaces/INotification';
 import ITarefa from "@/interfaces/ITarefa";
 
 import Box from "@/components/Box.vue";
@@ -106,8 +111,19 @@ export default defineComponent({
     }
 
     async function confirmarUpdateTarefa() {
-      store.dispatch(UPDATE_TAREFA, state.tarefaSelecionada);
-      fecharModal();
+      try {
+        if(state.tarefaSelecionada?.descricao == ""){
+         toast.notificar(TipoNotification.FALHA, "Erro", "A descrição da tarefa não pode ser vazia.");
+         return;
+        }
+        store.dispatch(UPDATE_TAREFA, state.tarefaSelecionada);
+        toast.notificar(TipoNotification.SUCESSO, "Sucesso", "A descrição da tarefa foi atualizada com sucesso!");
+        await delay(1500);
+        fecharModal();
+        
+      } catch (error) {
+        console.log(error);
+      }
     }
 
     return {
