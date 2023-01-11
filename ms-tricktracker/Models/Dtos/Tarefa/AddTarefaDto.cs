@@ -8,7 +8,7 @@ namespace ms_tracker.Models.Dtos.Tarefa
         [Required]
         public string Descricao {get; set;}
 
-        public int ProjetoId {get; set;}
+        public Models.Projeto Projeto {get; set;}
         
     }
 }

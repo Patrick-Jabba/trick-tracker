@@ -11,8 +11,8 @@ using ms_tracker.Context;
 namespace mstracker.Migrations
 {
     [DbContext(typeof(TrackerContext))]
-    [Migration("20230101144223_TarefaAddDto")]
-    partial class TarefaAddDto
+    [Migration("20230110190545_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
