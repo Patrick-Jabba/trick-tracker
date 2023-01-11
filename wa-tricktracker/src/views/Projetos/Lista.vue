@@ -72,7 +72,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-
 tr:nth-child(even) {background: #DDD}
 tr:nth-child(odd) {background: #FFF}
 </style>

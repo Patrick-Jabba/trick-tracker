@@ -58,8 +58,7 @@ export default defineComponent({
     });
     store.dispatch(GET_PROJETOS);
     const projetos = computed(() => store.state.projeto.projetos);
-
-
+    
     async function salvarTarefa(tempoDecorrido: number): Promise<void> {
       const projeto = store.state.projeto.projetos.find((proj) => proj.id === state.projetoId
       );
@@ -70,7 +69,7 @@ export default defineComponent({
       emit("aoSalvarTarefa", {
         duracaoEmSegundos: tempoDecorrido,
         descricao: state.descricaoTarefa,
-        projetoId: projeto.id,
+        projeto: projeto,
       });
       toast.notificar(TipoNotification.SUCESSO, "Sucesso", "Tarefa criada com êxito!")
       state.descricaoTarefa = "";
